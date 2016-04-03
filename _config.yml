@@ -21,7 +21,7 @@ image: 'assets/images/DBit.jpg'
 
 short_url: 'digibits.github.io'
 google_analytics: UA-75897035-1
-disqus: blogdigibits
+disqus: digibits
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)
 baseurl: /
 
