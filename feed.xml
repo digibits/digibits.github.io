@@ -1,38 +1,30 @@
+---
+layout: null
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title></title>
-    <description>Computing Nature</description>
-    <link>http://digibits.github.io///</link>
-    <atom:link href="http://digibits.github.io///feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 Apr 2016 14:43:56 +0530</pubDate>
-    <lastBuildDate>Tue, 05 Apr 2016 14:43:56 +0530</lastBuildDate>
-    <generator>Jekyll v3.0.3</generator>
-    
+    <title>{{ site.title | xml_escape }}</title>
+    <description>{{ site.description | xml_escape }}</description>
+    <link>{{ site.url }}{{ site.baseurl }}/</link>
+    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    {% for post in site.posts limit:10 %}
       <item>
-        <title>Hi there, this is DigiBits</title>
-        <description>&lt;p&gt;Hello, this is DigiBits, a fool behind the mask of a generic ‘Tech’-y name.&lt;/p&gt;
-
-&lt;p&gt;However, if you are thinking who this moron is, don’t. It’s useless. What’s important is that this
-fool writes mostly on CS and Maths. If the articles seem helpful, read and understand. If it is really helpful,
-decide whether you want to share it and if there is a mistake, you may want to comment and correct the mistake.
-However, if taking decisions makeyou feel dizzy, don’t bother with all those sharing and commenting shit. It’s OK.&lt;/p&gt;
-
-&lt;p&gt;However, if you do share or correct any mistake, I shall be grateful. Also, feel free to ask for clarification
-in the comments, I shall be happy to help.&lt;/p&gt;
-
-&lt;p&gt;Regards.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 03 Apr 2016 00:00:00 +0530</pubDate>
-        <link>http://digibits.github.io///First-Post</link>
-        <guid isPermaLink="true">http://digibits.github.io///First-Post</guid>
-        
-        <category>blog</category>
-        
-        
-        <category>DBit</category>
-        
+        <title>{{ post.title | xml_escape }}</title>
+        <description>{{ post.content | xml_escape }}</description>
+        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
+        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
+        {% for tag in post.tags %}
+        <category>{{ tag | xml_escape }}</category>
+        {% endfor %}
+        {% for cat in post.categories %}
+        <category>{{ cat | xml_escape }}</category>
+        {% endfor %}
       </item>
-    
+    {% endfor %}
   </channel>
 </rss>
