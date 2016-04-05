@@ -2,7 +2,7 @@
 
 ## Thanks 
 
-The blog uses the theme [Jasper](https://www.github.com/biomadeira/jasper). Many thanks to him :smile.
+The blog uses the theme [Jasper](https://www.github.com/biomadeira/jasper). Many thanks to him :smile:
 
 
 ## Copyright & License
